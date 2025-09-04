@@ -7,7 +7,7 @@ class UserCreate(BaseModel):
     password: str
 
 # Schemas for user update
-class userUpdate(BaseModel):
+class UserUpdate(BaseModel):
     username: str
     email: EmailStr
     password: str
