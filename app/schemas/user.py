@@ -3,7 +3,7 @@ from pydantic import BaseModel, EmailStr
 # Schemas for user creation
 class UserCreate(BaseModel):
     username: str
-    email: EmailStr # Use EmailStr for email validation
+    email: EmailStr # EmailStr for email validation
     password: str
 
 # Schemas for user update

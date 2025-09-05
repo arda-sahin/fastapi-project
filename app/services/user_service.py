@@ -1,10 +1,14 @@
 from sqlalchemy.orm import Session
-from app.models.user import UserModel
+from app.db.models.user import UserModel
 from app.schemas.user import UserCreate, UserUpdate
-from fastapi import HTTPException
 
 # Create user for POST /register
 def create_user(db: Session, user: UserCreate):
+    # Check if user with same username or email already exists
+    existing_user = db.query(UserModel).filter((UserModel.username == user.username) | (UserModel.email == user.email)).first()
+    if existing_user:
+        return None
+    
     new_user = UserModel(
         username=user.username,
         email=user.email,
