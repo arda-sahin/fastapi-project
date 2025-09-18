@@ -1,5 +1,5 @@
 from sqlalchemy.orm import Session
-from app.db.models.user_movie import UserMovieModel
+from app.models.user_movie import UserMovieModel
 from app.schemas.user_movie import UserMovieCreate, UserMovieUpdate
 
 

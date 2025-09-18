@@ -1,5 +1,5 @@
 from sqlalchemy.orm import Session
-from app.db.models.movie import MovieModel
+from app.models.movie import MovieModel
 from app.schemas.movie import MovieCreate, MovieUpdate
 
 def create_movie(db: Session, movie: MovieCreate):

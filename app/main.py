@@ -10,5 +10,5 @@ app.include_router(movie_router.router)
 app.include_router(user_movie_router.router)
 
 @app.get("/")
-def read_root():
-    return {"Project is running"}
+def root():
+    return {"Backend API is running"}

@@ -18,5 +18,6 @@ class UserResponse(BaseModel):
     username: str
     email: EmailStr
 
-    class Config:
-        orm_mode = True  # Enable ORM mode to work with SQLAlchemy models
+class Config:
+    from_attributes = True
+

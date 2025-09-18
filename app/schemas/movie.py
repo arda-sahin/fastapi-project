@@ -16,5 +16,5 @@ class MovieResponse(BaseModel):
     director: str
     year: int
 
-    class Config:
-        orm_mode = True
+class Config:
+    from_attributes = True

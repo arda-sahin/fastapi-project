@@ -1,5 +1,5 @@
 from sqlalchemy.orm import Session
-from app.db.models.user import UserModel
+from app.models.user import UserModel
 from app.schemas.user import UserCreate, UserUpdate
 
 # Create user for POST /register

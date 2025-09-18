@@ -17,5 +17,5 @@ class UserMovieResponse(BaseModel):
     rating: int | None = None
     review: str | None = None
 
-    class Config:
-        orm_mode = True
+class Config:
+    from_attributes = True
