@@ -7,23 +7,15 @@ RUN apt-get update && apt-get install -y netcat-openbsd && rm -rf /var/lib/apt/l
 WORKDIR /app
 
 # copy requirements file
-COPY requirements.txt /app/requirements.txt
-
+COPY requirements.txt /requirements.txt
 # Install dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r /requirements.txt
 
-# Copy project files
-COPY . .
-
-
-# Command to run the application
-#CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"]
-
-#ENTRYPOINT ["uvicorn", "app.main:app"]
-#CMD ["--host", "0.0.0.0", "--port", "80"]
-
+COPY . /app
 
 # Add entrypoint script
-COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"]
+COPY entrypoint.sh /app/entrypoint.sh
+RUN chmod +x /app/entrypoint.sh
+ENTRYPOINT ["/app/entrypoint.sh"]
+
+# CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"]
